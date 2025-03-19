@@ -1,10 +1,8 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #87CEEB; /* Sky blue background */
+    background: #87CEEB; /* Sky Blue */
 }
 canvas {
     display: block;
-    width: 100vw;
-    height: 100vh;
 }
