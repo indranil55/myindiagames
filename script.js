@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 🔄 GLTF লোডার দিয়ে মডেল লোড করা
     const loader = new THREE.GLTFLoader();
-    loader.load('https://indranil55.github.io/traingame/train.glb', function (gltf) {
+    loader.load('./train.glb', function (gltf) { // ফাইলটি যদি মূল রুটে থাকে
         const model = gltf.scene;
         model.position.set(0, 0, 0);
         scene.add(model);
