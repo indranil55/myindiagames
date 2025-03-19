@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Train Model Viewer</title>
     <style>
-        body { margin: 0; }
+        body { margin: 0; overflow: hidden; }
         canvas { display: block; }
     </style>
 </head>
@@ -13,24 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/loaders/GLTFLoader.js"></script>
     <script>
-        // Base64 এনকোডেড GLB ডাটা
-        const base64GLB = 'BASE64_ENCODED_GLTF_DATA_HERE';
-
-        // Base64 ডাটাকে ArrayBuffer-এ রূপান্তর
-        function base64ToArrayBuffer(base64) {
-            const binaryString = window.atob(base64);
-            const len = binaryString.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-                bytes[i] = binaryString.charCodeAt(i);
-            }
-            return bytes.buffer;
-        }
-
         // Three.js Scene সেটআপ
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
@@ -39,19 +25,16 @@
         light.position.set(1, 1, 1).normalize();
         scene.add(light);
 
-        // GLTF লোডার দিয়ে মডেল লোড করা
+        // GLTF লোডার দিয়ে মডেল লোড করা (GLB ফাইল GitHub Repository-তে আপলোড করা থাকতে হবে)
         const loader = new THREE.GLTFLoader();
-        const arrayBuffer = base64ToArrayBuffer(base64GLB);
-        const blob = new Blob([arrayBuffer], { type: 'model/gltf-binary' });
-        const url = URL.createObjectURL(blob);
-
-        loader.load(url, function (gltf) {
+        loader.load('train.glb', function (gltf) { // এখানে train.glb ফাইলের সঠিক URL দিন
             const model = gltf.scene;
+            model.position.set(0, 0, 0); 
             scene.add(model);
             camera.position.z = 5;
             animate();
         }, undefined, function (error) {
-            console.error(error);
+            console.error('Model loading error:', error);
         });
 
         // অ্যানিমেশন ফাংশন
@@ -59,6 +42,13 @@
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
         }
+
+        // স্ক্রীন রিসাইজ হলে আপডেট
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
     </script>
 </body>
 </html>
