@@ -12,6 +12,7 @@
 <body>
     <script type="module">
         import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
+        import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/loaders/GLTFLoader.js';
 
         // Scene Setup
         const scene = new THREE.Scene();
@@ -20,18 +21,30 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Train Model (Simple Cube for now)
-        const geometry = new THREE.BoxGeometry();
-        const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-        const train = new THREE.Mesh(geometry, material);
-        scene.add(train);
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        scene.add(ambientLight);
+
+        // Load Train Model
+        const loader = new GLTFLoader();
+        loader.load(
+            'path/to/your/train_model.glb',
+            function (gltf) {
+                const train = gltf.scene;
+                scene.add(train);
+                train.position.set(0, 0, 0);
+                train.scale.set(0.5, 0.5, 0.5);
+            },
+            undefined,
+            function (error) {
+                console.error(error);
+            }
+        );
 
         camera.position.z = 5;
 
         function animate() {
             requestAnimationFrame(animate);
-            train.rotation.x += 0.01;
-            train.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
         animate();
