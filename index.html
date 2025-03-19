@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Train Model Viewer</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body { margin: 0; overflow: hidden; background: #87CEEB; /* Sky Blue */ }
+        canvas { display: block; }
+    </style>
 </head>
 <body>
+    <!-- Three.js & GLTFLoader -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- External Script File -->
     <script src="script.js"></script>
 </body>
 </html>
