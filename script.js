@@ -17,9 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const loader = new THREE.GLTFLoader();
     loader.load('./train.glb', function (gltf) { // ফাইলটি যদি মূল রুটে থাকে
         const model = gltf.scene;
-        model.position.set(0, 0, 0);
+
+        // ট্রেনের অবস্থান ঠিক করা
+        model.position.set(0, 0, 0); // x, y, z এর মান পরিবর্তন করতে পারেন এখানে
+
         scene.add(model);
-        camera.position.set(0, 2, 5);
+        camera.position.set(0, 2, 5); // ক্যামেরার অবস্থান নির্ধারণ করা
         animate();
     }, undefined, function (error) {
         console.error('🚨 Model loading error:', error);
