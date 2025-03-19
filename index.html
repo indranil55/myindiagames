@@ -3,51 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Train Game</title>
+    <title>3D Train Model Viewer</title>
     <style>
-        body { margin: 0; overflow: hidden; }
+        body { margin: 0; }
         canvas { display: block; }
     </style>
 </head>
 <body>
-    <script type="module">
-        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
-        import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/loaders/GLTFLoader.js';
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        // Base64 এনকোডেড GLB ডাটা
+        const base64GLB = 'BASE64_ENCODED_GLTF_DATA_HERE';
 
-        // Scene Setup
+        // Base64 ডাটাকে ArrayBuffer-এ রূপান্তর
+        function base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        // Three.js Scene সেটআপ
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-        scene.add(ambientLight);
+        // আলো যুক্ত করা
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(1, 1, 1).normalize();
+        scene.add(light);
 
-        // Load Train Model
-        const loader = new GLTFLoader();
-        loader.load(
-            'path/to/your/train_model.glb',
-            function (gltf) {
-                const train = gltf.scene;
-                scene.add(train);
-                train.position.set(0, 0, 0);
-                train.scale.set(0.5, 0.5, 0.5);
-            },
-            undefined,
-            function (error) {
-                console.error(error);
-            }
-        );
+        // GLTF লোডার দিয়ে মডেল লোড করা
+        const loader = new THREE.GLTFLoader();
+        const arrayBuffer = base64ToArrayBuffer(base64GLB);
+        const blob = new Blob([arrayBuffer], { type: 'model/gltf-binary' });
+        const url = URL.createObjectURL(blob);
 
-        camera.position.z = 5;
+        loader.load(url, function (gltf) {
+            const model = gltf.scene;
+            scene.add(model);
+            camera.position.z = 5;
+            animate();
+        }, undefined, function (error) {
+            console.error(error);
+        });
 
+        // অ্যানিমেশন ফাংশন
         function animate() {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
         }
-        animate();
     </script>
 </body>
 </html>
