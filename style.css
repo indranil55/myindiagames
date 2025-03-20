@@ -1,43 +1,19 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-}
-
-header {
-    background-color: #2c3e50;
-    color: white;
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
     padding: 20px;
-    text-align: center;
 }
 
-main {
-    padding: 20px;
+.game-list h3 {
     text-align: center;
+    margin-bottom: 10px;
 }
 
-footer {
-    background-color: #2c3e50;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
+.game-list iframe {
     width: 100%;
-    bottom: 0;
-}
-
-.game-list a {
-    display: block;
-    margin: 10px;
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-}
-
-.game-list a:hover {
-    background-color: #2980b9;
+    height: 400px; /* প্রয়োজন অনুসারে উচ্চতা ঠিক করো */
+    border: none;
+    border-radius: 10px; /* গেমের চারপাশে গোলাকার ডিজাইন */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* হালকা শ্যাডো */
 }
