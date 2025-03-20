@@ -1,4 +1,4 @@
-/* ডার্ক থিম স্টাইল */
+/* ডার্ক থিম */
 body {
     background-color: #121212;
     color: white;
@@ -24,7 +24,7 @@ header {
     justify-content: center;
 }
 
-/* গেম স্টাইল */
+/* গেম ব্লক */
 .game {
     background-color: #222;
     padding: 10px;
