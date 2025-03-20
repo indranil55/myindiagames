@@ -1,7 +1,7 @@
-/* ডার্ক থিম */
+/* লাইট থিম */
 body {
-    background-color: #121212;
-    color: white;
+    background-color: #f0f8ff; /* AliceBlue রঙ */
+    color: #333;
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
@@ -10,9 +10,10 @@ body {
 
 /* হেডার */
 header {
-    background-color: #1f1f1f;
-    padding: 10px;
+    background: linear-gradient(45deg, #007bff, #00d4ff); /* নীল গ্রেডিয়েন্ট */
+    padding: 15px;
     font-size: 22px;
+    color: white;
 }
 
 /* গেম কন্টেইনার */
@@ -26,11 +27,12 @@ header {
 
 /* গেম ব্লক */
 .game {
-    background-color: #222;
+    background-color: #ffffff;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.2s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .game img {
@@ -43,18 +45,20 @@ header {
 .game h3 {
     font-size: 16px;
     margin: 10px 0 5px;
-    color: #fff;
+    color: #007bff;
 }
 
 /* হোভার এফেক্ট */
 .game:hover {
     transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* ফুটার */
 footer {
-    background-color: #1f1f1f;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
     padding: 10px;
     font-size: 14px;
+    color: white;
     margin-top: 20px;
 }
