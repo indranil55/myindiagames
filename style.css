@@ -1,19 +1,37 @@
+/* হেডার ছোট করা */
+header {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+/* গেমের লিস্ট গ্রিড লেআউট */
 .game-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    padding: 10px;
+    text-align: center;
 }
 
 .game-list h3 {
-    text-align: center;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin: 5px 0;
 }
 
+/* গেম ফ্রেম ডিজাইন */
 .game-list iframe {
     width: 100%;
-    height: 400px; /* প্রয়োজন অনুসারে উচ্চতা ঠিক করো */
+    height: 350px; /* ছোট করে দেওয়া হলো */
     border: none;
-    border-radius: 10px; /* গেমের চারপাশে গোলাকার ডিজাইন */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* হালকা শ্যাডো */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ফুটার ছোট করা */
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 5px 0;
+    margin-top: 10px;
 }
