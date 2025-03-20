@@ -1,7 +1,7 @@
-/* লাইট থিম */
+/* পুরো পেজের ব্যাকগ্রাউন্ড */
 body {
-    background-color: #f0f8ff; /* AliceBlue রঙ */
-    color: #333;
+    background-color: #e9ecef; /* ছবির মতো হালকা ধূসর রঙ */
+    color: #212529;
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
@@ -10,53 +10,67 @@ body {
 
 /* হেডার */
 header {
-    background: linear-gradient(45deg, #007bff, #00d4ff); /* নীল গ্রেডিয়েন্ট */
-    padding: 15px;
-    font-size: 22px;
+    background-color: #1e3a4c; /* ছবির মতো গাঢ় নীল রঙ */
+    padding: 20px;
+    font-size: 26px;
     color: white;
 }
 
-/* গেম কন্টেইনার */
+/* গেম সেকশন */
 .game-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     justify-content: center;
 }
 
-/* গেম ব্লক */
+/* গেম কার্ড */
 .game {
     background-color: #ffffff;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* গেম ইমেজ */
 .game img {
     width: 100%;
     border-radius: 8px;
-    height: 160px;
+    height: 180px;
     object-fit: cover;
 }
 
+/* গেমের নাম */
 .game h3 {
-    font-size: 16px;
+    font-size: 18px;
     margin: 10px 0 5px;
-    color: #007bff;
+    color: #000;
 }
 
-/* হোভার এফেক্ট */
-.game:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+/* প্লে বাটন */
+.play-button {
+    background-color: #28a745; /* ছবির মতো সবুজ প্লে বাটন */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.play-button:hover {
+    background-color: #218838;
 }
 
 /* ফুটার */
 footer {
-    background: linear-gradient(45deg, #007bff, #00d4ff);
+    background-color: #1e3a4c;
     padding: 10px;
     font-size: 14px;
     color: white;
