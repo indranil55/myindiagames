@@ -3,54 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My India Games</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Indranil Crazy Games - Play Free Games Online</title>
+    <meta name="description" content="Play the best free online games on Indranil Crazy Games. Enjoy a wide variety of exciting and fun games!">
+    <meta name="keywords" content="free games, online games, Indranil Crazy Games, play games online">
+    <meta name="author" content="Indranil Roy Das">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mygames.xyz/">
+    
+    <!-- Content Security Policy (CSP) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.google.com https://*.googleapis.com https://*.googlesyndication.com https://*.gstatic.com; script-src 'self' 'unsafe-inline' https://*.googlesyndication.com https://*.google-analytics.com https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://*.googleapis.com; img-src 'self' data: https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.googlesyndication.com; frame-src 'self' https://*.google.com https://*.googlesyndication.com;">
+    
+    <!-- AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-XXXXXXXXXXXXXXX",
+            enable_page_level_ads: true
+        });
+    </script>
+    
+    <script>
+        function showAdAndRedirect() {
+            window.location.href = "https://www.crazygames.com";
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            text-align: center;
+            background-color: #007bff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+        }
+        .play-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #FF9800;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .play-button:hover {
+            background-color: #e68900;
+        }
+        .date-time {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 16px;
+            color: white;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 80px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My India Games</h1>
-    </header>
-    
-    <main>
-        <h2>Select a Game to Play</h2>
-        <div class="game-list">
-            
-            <!-- Adding 100 games dynamically -->
-            <script>
-                let games = [
-                    "speed-master", "yeti-sensation", "train-miner", "stack-smash", "knife-rain", "giant-rush", "freecell-solitaire-classic", "2cars", "rival-rush", "cannon-balls-3d",
-                    "western-sniper", "garden-tales", "solitaire-classic", "bubble-shooter", "parking-fury", "mahjong-titans", "moto-x3m", "basketball-legends", "tetris", "snake-game",
-                    "tic-tac-toe", "checkers", "chess-mania", "car-parking", "fishing-frenzy", "soccer-stars", "fruit-ninja", "word-search", "ninja-run", "robo-battle",
-                    "monster-truck", "drift-racing", "space-invaders", "flappy-bird", "cookie-clicker", "jigsaw-puzzle", "hidden-objects", "2048", "bubble-pop", "tower-defense",
-                    "angry-shooters", "archery-mania", "doodle-jump", "jungle-adventure", "haunted-house", "zombie-survival", "super-mario", "pacman-classic", "spider-solitaire", "bejeweled-blitz",
-                    "temple-run", "subway-surfers", "bike-racing", "fast-lane", "panda-run", "lego-racers", "nfs-underground", "real-football", "bowling-king", "stickman-fight",
-                    "dinosaur-run", "boxing-champion", "ping-pong", "fidget-spinner", "roller-coaster", "escape-room", "maze-runner", "airplane-simulator", "bus-parking", "golf-challenge",
-                    "pool-8-ball", "heli-rescue", "bmx-stunts", "extreme-mountain", "ice-hockey", "carrom-board", "table-tennis", "rugby-rush", "darts-master", "cricket-worldcup",
-                    "baseball-league", "formula-race", "street-basketball", "sniper-mission", "extreme-offroad", "city-builder", "bridge-constructor", "farm-simulator", "train-conductor", "hotel-manager",
-                    "pizza-delivery", "tattoo-salon", "hair-stylist", "fashion-designer", "cooking-mania", "music-band", "robot-wars", "castle-defense", "fishing-champion", "diving-challenge"
-                ];
-                
-                let gameList = document.querySelector(".game-list");
-                
-                games.forEach((game, index) => {
-                    let gameTitle = document.createElement("h3");
-                    gameTitle.textContent = `Game ${index + 1}: ${game.replace(/-/g, ' ').toUpperCase()}`;
-                    
-                    let gameFrame = document.createElement("iframe");
-                    gameFrame.src = `https://play.famobi.com/${game}`;
-                    gameFrame.width = "100%";
-                    gameFrame.height = "500px";
-                    
-                    gameList.appendChild(gameTitle);
-                    gameList.appendChild(gameFrame);
-                });
-            </script>
-            
-        </div>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 My India Games. All Rights Reserved.</p>
-    </footer>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="date-time" id="dateTime"></div>
+    <h1>Play Now Indranil Crazy Games</h1>
+    <button class="play-button" onclick="showAdAndRedirect()">Play Now</button>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("dateTime").innerText = now.toLocaleString();
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
 </body>
 </html>
