@@ -1,99 +1,56 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indranil Crazy Games - Play Free Games Online</title>
-    <meta name="description" content="Play the best free online games on Indranil Crazy Games. Enjoy a wide variety of exciting and fun games!">
-    <meta name="keywords" content="free games, online games, Indranil Crazy Games, play games online">
-    <meta name="author" content="Indranil Roy Das">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mygames.xyz/">
-    
-    <!-- Content Security Policy (CSP) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.google.com https://*.googleapis.com https://*.googlesyndication.com https://*.gstatic.com; script-src 'self' 'unsafe-inline' https://*.googlesyndication.com https://*.google-analytics.com https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://*.googleapis.com; img-src 'self' data: https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.googlesyndication.com; frame-src 'self' https://*.google.com https://*.googlesyndication.com;">
-    
-    <!-- AdSense Auto Ads -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-XXXXXXXXXXXXXXX",
-            enable_page_level_ads: true
-        });
-    </script>
-    
-    <script>
-        function showAdAndRedirect() {
-            window.location.href = "https://www.crazygames.com";
-        }
-    </script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            text-align: center;
-            background-color: #007bff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            padding: 20px;
-            position: relative;
-        }
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: white;
-        }
-        .play-button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            background-color: #FF9800;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .play-button:hover {
-            background-color: #e68900;
-        }
-        .date-time {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 16px;
-            color: white;
-        }
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            width: 80px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Games</title>
+<meta http-equiv="Content-Security-Policy" content="
+default-src 'self' https://*.google.com https://*.googleapis.com https://*.googlesyndication.com https://*.gstatic.com https://www.y8.com; 
+script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googlesyndication.com https://*.google-analytics.com https://*.googletagmanager.com https://pagead2.googlesyndication.com; 
+style-src 'self' 'unsafe-inline' https://*.googleapis.com; 
+img-src 'self' data: https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://*.googlesyndication.com; 
+frame-src 'self' https://*.google.com https://*.googlesyndication.com https://www.mygames.xyz https://www.y8.com;"> 
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { text-align: center; background: linear-gradient(135deg, #1e3c72, #2a5298); display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; padding: 20px; position: relative; color: white; }
+h1 { font-size: 32px; font-weight: bold; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.logo-container { position: absolute; top: 10px; left: 20px; }
+.logo { width: 120px; height: auto; }
+.play-button { padding: 12px 25px; font-size: 20px; background: #FF9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); }
+.play-button:hover { background: #e68900; transform: scale(1.05); }
+.game-container { width: 100%; height: 100vh; margin-top: 20px; display: none; }
+iframe { width: 100%; height: 100vh; border: none; }
+</style>
 </head>
 <body>
-    <img src="logo.png" alt="Logo" class="logo">
-    <div class="date-time" id="dateTime"></div>
-    <h1>Play Now Indranil Crazy Games</h1>
-    <button class="play-button" onclick="showAdAndRedirect()">Play Now</button>
-    <script>
-        function updateDateTime() {
-            const now = new Date();
-            document.getElementById("dateTime").innerText = now.toLocaleString();
-        }
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
-    </script>
+<div class="logo-container">
+<img src="mygames_logo.png" alt="MyGames Logo" class="logo">
+</div>
+
+<h1 class="game-title">WELCOME TO Y8 GAMES</h1>
+<button class="play-button" onclick="playGame()">PLAY NOW</button>
+
+<div class="game-container" id="gameContainer">
+<iframe id="gameFrame" src="about:blank" allowfullscreen></iframe>
+</div>
+
+<footer>
+<p>Developed by Indranil Ruidas</p>
+</footer>
+
+<script>
+function playGame() {
+    try {
+        document.querySelector(".play-button").style.display = "none";
+        document.getElementById("gameContainer").style.display = "block";
+        document.getElementById("gameFrame").src = "https://www.y8.com";
+    } catch (error) {
+        console.error("Error in playGame():", error);
+    }
+}
+</script>
+
 </body>
 </html>
